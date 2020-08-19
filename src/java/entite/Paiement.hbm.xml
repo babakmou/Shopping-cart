@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 15, 2020 11:24:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entite.Paiement" table="PAIEMENT" schema="DEMO" optimistic-lock="version">
+        <composite-id name="id" class="entite.PaiementId">
+            <key-property name="idClient" type="int">
+                <column name="ID_CLIENT" precision="5" scale="0" />
+            </key-property>
+            <key-property name="idCommande" type="int">
+                <column name="ID_COMMANDE" precision="5" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="client" class="entite.Client" update="false" insert="false" fetch="select">
+            <column name="ID_CLIENT" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="commande" class="entite.Commande" update="false" insert="false" fetch="select">
+            <column name="ID_COMMANDE" precision="5" scale="0" not-null="true" />
+        </many-to-one>
+        <property name="datePaie" type="date">
+            <column name="DATE_PAIE" length="7" not-null="true" />
+        </property>
+        <property name="montant" type="big_decimal">
+            <column name="MONTANT" precision="8" not-null="true" />
+        </property>
+        <property name="typePaiement" type="string">
+            <column name="TYPE_PAIEMENT" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

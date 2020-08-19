@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 15, 2020 11:24:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entite.Lignecommande" table="LIGNECOMMANDE" schema="DEMO" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="produit" class="entite.Produit" fetch="select">
+            <column name="ID_PRODUIT" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="client" class="entite.Client" fetch="select">
+            <column name="ID_CLIENT" precision="5" scale="0" />
+        </many-to-one>
+        <many-to-one name="commande" class="entite.Commande" fetch="select">
+            <column name="ID_COMMANDE" precision="5" scale="0" />
+        </many-to-one>
+        <property name="quantite" type="int">
+            <column name="QUANTITE" precision="5" scale="0" not-null="true" />
+        </property>
+        <property name="prix" type="int">
+            <column name="PRIX" precision="5" scale="0" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

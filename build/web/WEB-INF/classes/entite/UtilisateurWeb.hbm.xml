@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 15, 2020 11:24:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entite.UtilisateurWeb" table="UTILISATEUR_WEB" schema="DEMO" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="adresseIp" type="string">
+            <column name="ADRESSE_IP" length="30" not-null="true" />
+        </property>
+        <property name="userAgent" type="string">
+            <column name="USER_AGENT" length="80" not-null="true" />
+        </property>
+        <set name="clients" table="CLIENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_UTILISATEUR_WEB" precision="5" scale="0" />
+            </key>
+            <one-to-many class="entite.Client" />
+        </set>
+    </class>
+</hibernate-mapping>

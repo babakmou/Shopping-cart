@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/web/recherche.jsp</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/control/ChercherArticle.java</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/DAO/ProduitDAO.java</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/control/GererPanier.java</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/control/NewHibernateUtil.java</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/modele/Panier.java</file>
+            <file>file:/home/babak/NetBeansProjects/A11ProjetSession/src/java/entite/Produit.java</file>
+        </group>
+    </open-files>
+</project-private>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 15, 2020 11:24:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entite.Client" table="CLIENT" schema="DEMO" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="utilisateurWeb" class="entite.UtilisateurWeb" fetch="select">
+            <column name="ID_UTILISATEUR_WEB" precision="5" scale="0" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="NOM" length="30" not-null="true" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="PRENOM" length="30" not-null="true" />
+        </property>
+        <property name="adresse" type="string">
+            <column name="ADRESSE" length="100" not-null="true" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="TELEPHONE" length="30" not-null="true" />
+        </property>
+        <property name="courriel" type="string">
+            <column name="COURRIEL" length="30" not-null="true" />
+        </property>
+        <property name="motPasse" type="string">
+            <column name="MOT_PASSE" length="30" not-null="true" />
+        </property>
+        <set name="commandes" table="COMMANDE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CLIENT" precision="5" scale="0" />
+            </key>
+            <one-to-many class="entite.Commande" />
+        </set>
+        <set name="lignecommandes" table="LIGNECOMMANDE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CLIENT" precision="5" scale="0" />
+            </key>
+            <one-to-many class="entite.Lignecommande" />
+        </set>
+        <set name="paiements" table="PAIEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CLIENT" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="entite.Paiement" />
+        </set>
+    </class>
+</hibernate-mapping>

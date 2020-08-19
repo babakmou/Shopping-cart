@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 15, 2020 11:24:06 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entite.Commande" table="COMMANDE" schema="DEMO" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="ID" precision="5" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="client" class="entite.Client" fetch="select">
+            <column name="ID_CLIENT" precision="5" scale="0" />
+        </many-to-one>
+        <property name="dateCommande" type="date">
+            <column name="DATE_COMMANDE" length="7" not-null="true" />
+        </property>
+        <property name="dateLivraison" type="date">
+            <column name="DATE_LIVRAISON" length="7" />
+        </property>
+        <property name="prixTotal" type="big_decimal">
+            <column name="PRIX_TOTAL" precision="8" not-null="true" />
+        </property>
+        <property name="etat" type="string">
+            <column name="ETAT" length="30" />
+        </property>
+        <set name="paiements" table="PAIEMENT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_COMMANDE" precision="5" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="entite.Paiement" />
+        </set>
+        <set name="lignecommandes" table="LIGNECOMMANDE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_COMMANDE" precision="5" scale="0" />
+            </key>
+            <one-to-many class="entite.Lignecommande" />
+        </set>
+    </class>
+</hibernate-mapping>
